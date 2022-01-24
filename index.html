@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="img/icon.png">
+    <title>Pet project cable</title>
+</head>
+
+<body class="font-sans relative">
+
+<!-- Кнопка WhatsApp -->
+<div class="scale-[0.63] inline-block fixed bottom-24 -left-7">
+  <a href="https://api.whatsapp.com/send?phone=+79037235119" title="Написать в WhatsApp">
+    <img src="img/wa_button.png" alt="WhatsApp">
+  </a>
+</div>
+
+<header class="relative">
+  <!-- Начало зеленого заголовка -->
+  <div class="fixed z-20 h-14 w-7/12 ml-96 text-white bg-green-700 flex justify-between items-center">
+    <div>
+      <img src="img/clock.png" alt="Время" class="w-4 h-4 inline">
+      <p class="inline"><span class="font-bold">Пн - Пт:</span> 09:00 - 20:00, <span class="font-bold">Сб - Вс:</span> 10:00 - 16:00</p>
+    </div>
+
+    <!-- Форма "Заказать звонок" -->
+    <button id="opencall" title="Заказать звонок" form="call" class="hover:opacity-75">
+      <img src="img/tel.png" alt="Телефон" class="inline pr-3"><span class="border-b-2 border-dashed pb-px">Заказать звонок</span>
+    </button>
+    <dialog id="dcall" class="absolute top-56 bg-gray-100">
+      <form action="#" method="post" id="call" class="px-14 w-[495px]">
+
+        <div class="absolute left-[490px] top-[20px]">
+          <button id="closecall" title="Закрыть" class="scale-[3]">&times;</button>
+        </div>
+
+        <h2 class="text-3xl font-semibold text-left my-4">Заказать обратный звонок</h2>
+        <ul>
+          <li>
+            <label for="namecall" class="text-lg text-left">Ваше имя*</label>
+            <input type="text" name="user-namecall" id="namecall" autocomplete="on" placeholder="Как к вам обращаться" required
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+          <li>
+            <label for="telcall" class="text-lg text-left block pt-4">Контактный телефон*</label>
+            <input type="tel" name="user-telcall" id="telcall" autocomplete="on" placeholder="Ваш телефон" required class="mt-2 block w-full border py-2 pl-6">
+          </li>
+          <li class="opacity-75 italic py-5">
+            * - обязательные для заполнения поля
+          </li>
+          </li>
+          <li>
+            <input type="checkbox" name="data-processingcall" id="data-proccall" checked>
+            <label for="data-proccall">
+              <a href="https://expert-cable.ru/privacy-policy/" title="Политика конфиденциальности" target="_blank" class="underline">
+                С условиями обработки данных
+              </a> ознакомлен и<br> <span class="pl-4">согласен</span>
+            </label>
+          </li>
+        </ul>
+      
+      <div class="text-center">
+        <button type="submit" title="Заказать обратный звонок"
+        class="text-lg font-semibold text-center text-white px-5 py-2 my-7 bg-green-700 border-2 border-green-700 hover:text-green-700 hover:bg-white">
+        Заказать обратный звонок
+        </button>
+      </div>
+
+    </form>
+    </dialog>
+
+    <script>
+    var dialog_call = document.querySelector('#dcall');
+    document.querySelector('#opencall').onclick = function() {
+    dialog_call.show();
+    }
+    document.querySelector('#closecall').onclick = function() {
+    dialog_call.close();
+    }
+    </script>
+    <!-- Конец формы "Заказать звонок" -->
+
+    <a href="mailto:sale@expert-cable.ru" title="Почта">sale@expert-cable.ru</a>
+
+    <!-- Форма "Быстрая заявка" -->
+    <button id="openbid" title="Быстрая заявка" form="bid" class="hover:opacity-75">
+      <img src="img/bid.png" alt="Заявка" class="inline pr-3"><span class="border-b-2 border-dashed pb-px">Быстрая заявка</span>
+    </button>
+    <dialog id="dbid" class="absolute top-32 bg-gray-100">
+      <form action="#" method="post" id="bid" class="px-14 w-[495px]">
+
+        <div class="absolute left-[490px] top-[20px]">
+          <button id="closebid" title="Закрыть" class="scale-[3]">&times;</button>
+        </div>
+
+        <h2 class="text-3xl font-semibold text-center my-4">Быстрая заявка</h2>
+        <ul>
+          <li>
+            <label for="namebid" class="text-lg block text-left">Ваше имя*</label>
+            <input type="text" name="user-namebid" id="namebid" autocomplete="on" placeholder="Как к вам обращаться" required
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="mailbid" class="text-lg block text-left pt-4">E-mail*</label>
+            <input type="email" name="user-mailbid" id="mailbid" autocomplete="on" placeholder="Почтовый ящик" required
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="telbid" class="text-lg block text-left pt-4">Контактный телефон</label>
+            <input type="tel" name="user-telbid" id="telbid" autocomplete="on" placeholder="Ваш телефон"
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="msgbid" class="text-lg block text-left pt-4">Ваше сообщение</label>
+            <textarea id="msgbid" name="user-messagebid" rows="3" placeholder="Дополнительная информация"
+            class="mt-2 block w-full resize-none border py-2 pl-6">
+            </textarea>
+          </li>
+
+          <li class="opacity-75 italic py-5">
+            * - обязательные для заполнения поля
+          </li>
+
+          </li>
+          <li>
+            <input type="checkbox" name="data-processingcall" id="data-proccall" checked>
+            <label for="data-proccall">
+              <a href="https://expert-cable.ru/privacy-policy/" title="Политика конфиденциальности" target="_blank" class="underline">
+                С условиями обработки данных
+              </a> ознакомлен и<br> <span class="pl-4">согласен</span>
+            </label>
+          </li>
+        </ul>
+      
+      <div class="text-center">
+        <button type="submit" title="Отправить заявку"
+        class="text-lg font-semibold text-center text-white px-5 py-2 my-7 bg-green-700 border-2 border-green-700 hover:text-green-700 hover:bg-white">
+        Отправить заявку
+        </button>
+      </div>
+
+    </form>
+    </dialog>
+
+    <script>
+    var dialog_bid = document.querySelector('#dbid');
+    document.querySelector('#openbid').onclick = function() {
+    dialog_bid.show();
+    }
+    document.querySelector('#closebid').onclick = function() {
+    dialog_bid.close();
+    }
+    </script>
+    <!-- Конец формы "Быстрая заявка" -->
+
+    <a href="https://docs.google.com/spreadsheets/d/1W7HyTaHHwfKhLcJXCez_9b4DuasGgGt4_hb56Nokc2c/edit#gid=0" title="Наличие на складе" target="_blank"
+    class="uppercase bg-green-700 border border-white rounded px-1.5 py-1 hover:text-orange-500 hover:border-orange-500 text-sm">Складская справка</a>
+    <a href="#" title="Английская версия"
+    class="uppercase bg-green-700 border border-white rounded px-1.5 py-1 hover:text-orange-500 hover:border-orange-500 text-sm">eng</a>
+  </div>
+  <div class="fixed z-10 h-14 w-full bg-green-700"></div>
+  <!-- Конец зеленого заголовка -->
+
+  <!-- Начало белого заголовка с логотипом-->
+  <div class="w-7/12 mx-auto pt-28 h-20 flex justify-between items-center">
+    <a href="https://expert-cable.ru/" title="На главную страницу"><img src="img/logo.png" alt="Логотип"></a>
+    <a href="https://expert-cable.ru/info/antikontrafakt/" title="Опасность некачественного кабеля">
+      <img src="img/exp.png" alt="Опасность некачественного кабеля">
+    </a>
+    <button>
+      <img src="img/mobile.png" alt="Телефон" class="inline pr-1.5">
+        <span class="text-base font-medium hover:border-b-2 hover:border-dashed hover:border-black hover:pb-2">+7 (495) 248-66-70</span>
+      </button>
+    <button>
+      <img src="img/mobile.png" alt="Телефон" class="inline pr-1.5">
+        <span class="text-base font-medium hover:border-b-2 hover:border-dashed hover:border-black hover:pb-2">8 800 707-66-70</span>
+    </button>
+    <button><img src="img/loupe.png" alt="Поиск"></button>
+    <a href="https://expert-cable.ru/personal/cart/" title="Оформить заказ" class="text-lg font-medium hover:text-orange-500">
+      <img src="img/truck.png" alt="Корзина" class="inline pr-1.5">Корзина
+    </a>
+  </div>
+  <!-- Конец белого заголовка с логотипом-->
+
+  <hr class="mt-14">
+
+<!-- Навигация -->
+  <nav>
+    <ul class="uppercase text-lg font-medium flex justify-evenly items-center w-7/12 mx-auto pb-4">
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/about/" title="О нас" class="inline">Компания</a>
+      </li>
+      <div class="bg-green-700 w-1.5 h-1.5 rounded mt-4"></div>
+        <ul class="hidden">
+          <li><a href="https://expert-cable.ru/about/" title="О производстве">О Заводе</a></li>
+          <li><a href="https://expert-cable.ru/about/mission/" title="Миссия и цели">Миссия и цели</a></li>
+          <li><a href="https://expert-cable.ru/about/history/" title="История завода">История</a></li>
+        </ul>
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/catalog/" title="Продукция">Каталог</a>
+      </li>
+      <div class="bg-green-700 w-1.5 h-1.5 rounded mt-4"></div>
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/partner/" title="Монтаж">Электромонтаж</a>
+      </li>
+      <div class="bg-green-700 w-1.5 h-1.5 rounded mt-4"></div>
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/about/corpeducation/" title="Учебный центр">Обучение</a>
+      </li>
+      <div class="bg-green-700 w-1.5 h-1.5 rounded mt-4"></div>
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/info/" title="Инфо">Информация</a>
+      </li>
+      <div class="bg-green-700 w-1.5 h-1.5 rounded mt-4"></div>
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/about/vacancy/" title="Вакансии">Карьера</a>
+      </li>
+      <div class="bg-green-700 w-1.5 h-1.5 rounded mt-4"></div>
+      <li class="pt-4 border-t-2 border-transparent hover:text-orange-500 hover:border-t-2 hover:border-orange-500">
+        <a href="https://expert-cable.ru/contacts/" title="Связаться с нами">Контакты</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Задаю всему сайту ширину w-7/12 -->
+<div class="w-7/12 mx-auto">
+
+<!-- Зеленый подзаголовок + катушка кабеля -->
+
+<ul class="h-11 bg-green-700 flex justify-start items-center">
+  <li class="text-gray-300 pl-8">
+    <a href="https://expert-cable.ru/" title="На главную страницу">Главная /</a>
+  </li>
+  <li class="text-gray-300 pl-1">
+    <a href="https://expert-cable.ru/catalog/" title="Продукция">Каталог /</a>
+  </li>
+  <li class="text-white pl-1">Кабели силовые до 3 кВ</li>
+</ul>
+<img src="img/bobbin.png" alt="Катушка кабеля" class="mt-3">
+<h1 class="text-4xl font-bold text-green-700 absolute ml-96 -mt-16">Кабели силовые до 3 кВ</h1>
+
+<!-- Разделы кабеля -->
+<section class="mt-10 grid grid-cols-10 gap-x-2">
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/" title="Кабели силовые до 3 кВ">
+    <p><img src="img/chapter/1.jpg" alt="До 3кВ"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0">Кабели<br> силовые до<br> 3 кВ</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-6-kv/" title="Кабели силовые до 10кВ">
+    <p><img src="img/chapter/2.jpg" alt="До 10кВ"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0">Кабели<br> силовые до<br> 10 кВ</p>
+    <div class="relative">
+     <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+      Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/" title="Энергосбережение">
+    <p><img src="img/chapter/3.jpg" alt="Энергосбережение"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0 mt-4"><span class="text-[9px]">Энергосбережение</span><br> expert class</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/kabeli-kontrolnye/" title="Кабели контрольные">
+    <p><img src="img/chapter/4.jpg" alt="Кабели контрольные"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0 mt-4">Кабели<br> контрольные</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/kabeli-gibkie/" title="Кабели гибкие">
+    <p><img src="img/chapter/5.jpg" alt="Кабели гибкие"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0 mt-4">Кабели<br> гибкие</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+<a href="https://expert-cable.ru/catalog/provoda-kabeli-ustanovochnye/" title="Провода, кабели установочные">
+    <p><img src="img/chapter/6.jpg" alt="Провода, кабели установочные"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0">Провода,<br> кабели<br> установочные</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/provoda-sip/" title="Провода СИП">
+    <p><img src="img/chapter/7.jpg" alt="Провода СИП"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0">Провода<br> СИП</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/spetsialnye-kabeli/" title="Специальные кабели">
+    <p><img src="img/chapter/8.jpg" alt="Специальные кабели"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0 mt-4">Специальные<br> кабели</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/catalog/shina-mednaya/" title="Шина медная">
+    <p><img src="img/chapter/9.jpg" alt="Шина медная"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0 mt-4">Шина<br> медная</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+
+<div class="border hover:border-0 hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)] hover:scale-105">
+  <a href="https://expert-cable.ru/3d-katalog/" title="3D-каталог">
+    <p><img src="img/chapter/10.png" alt="3D-каталог"></p>
+    <p class="uppercase text-xs font-bold text-center bg-white hover:opacity-0 mt-4">3D-каталог</p>
+    <div class="relative">
+      <p class="text-sm leading-4 font-bold text-center text-white bg-orange-500 opacity-0 hover:opacity-100 absolute block w-full -top-12">
+        Перейти<br> в<br> раздел</p>
+    </div>
+  </a>
+</div>
+</section>
+
+<!-- Боковая панель -->
+<aside class="float-left mr-6">
+  <h2 class="uppercase font-medium text-xl mt-6 mb-3">Подбор по характеристикам</h2>
+  <form id="aside-form" class="border">
+
+  <details>
+  <summary class="font-medium text-lg pt-4 pb-3 pl-4 list-none whitespace-pre">Токопроводящая жила                          <span>&or;</span></summary>
+  <input type="checkbox" name="n-al1" id="al1" class="ml-6 mr-2 align-middle"><label for="al1" class="align-middle">алюминиевая</label><br>
+  <input type="checkbox" name="n-med1" id="med1" class="ml-6 mr-2 align-middle"><label for="med1" class="align-middle">медная</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Материал изоляции  <span class="ml-36 mr-4">&or;</span></summary>
+  <input type="checkbox" name="n-pvh2" id="pvh2" class="ml-6 mr-2 align-middle"><label for="pvh2" class="align-middle">ПВХ пластикат</label><br>
+  <input type="checkbox" name="n-pol2" id="pol2" class="ml-6 mr-2 align-middle"><label for="pol2" class="align-middle">полимерная композиция</label><br>
+  <input type="checkbox" name="n-sh2" id="sh2" class="ml-6 mr-2 align-middle"><label for="sh2" class="align-middle">сшитый полиэтилен</label><br>
+  <input type="checkbox" name="n-et2" id="et2" class="ml-6 mr-2 align-middle"><label for="et2" class="align-middle">этиленпропиленовая резина</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Показатель пожарной<br>безопасности                                          <span>&or;</span></summary>
+  <input type="checkbox" name="n-nga3" id="nga3" class="ml-6 mr-2 align-middle"><label for="nga3" class="align-middle">нг(А)</label><br>
+  <input type="checkbox" name="n-frhf3" id="frhf3" class="ml-6 mr-2 align-middle"><label for="frhf3" class="align-middle">нг(А)-FRHF</label><br>
+  <input type="checkbox" name="n-frls3" id="frls3" class="ml-6 mr-2 align-middle"><label for="frls3" class="align-middle">нг(А)-FRLS</label><br>
+  <input type="checkbox" name="n-frlslt3" id="frlslt3" class="ml-6 mr-2 align-middle"><label for="frlslt3" class="align-middle">нг(А)-FRLSLTx</label><br>
+  <input type="checkbox" name="n-hf3" id="hf3" class="ml-6 mr-2 align-middle"><label for="hf3" class="align-middle">нг(А)-HF</label><br>
+  <input type="checkbox" name="n-ls3" id="ls3" class="ml-6 mr-2 align-middle"><label for="ls3" class="align-middle">нг(А)-LS</label><br>
+  <input type="checkbox" name="n-lslt3" id="lslt3" class="ml-6 mr-2 align-middle"><label for="lslt3" class="align-middle">нг(А)-LSLTx</label><br>
+  <input type="checkbox" name="n-hl3" id="hl3" class="ml-6 mr-2 align-middle"><label for="hl3" class="align-middle">нг(А)-ХЛ</label><br>
+  <input type="checkbox" name="n-ots3" id="ots3" class="ml-6 mr-2 align-middle"><label for="ots3" class="align-middle">отсутствует</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Огнестойкое исполнение (FR)              <span>&or;</span></summary>
+  <input type="checkbox" name="n-yes4" id="yes4" class="ml-6 mr-2 align-middle"><label for="yes4" class="align-middle">да</label><br>
+  <input type="checkbox" name="n-no4" id="no4" class="ml-6 mr-2 align-middle"><label for="no4" class="align-middle">нет</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Хладостойкое исполнение (ХЛ)           <span>&or;</span></summary>
+  <input type="checkbox" name="n-yes5" id="yes5" class="ml-6 mr-2 align-middle"><label for="yes5" class="align-middle">да</label><br>
+  <input type="checkbox" name="n-no5" id="no5" class="ml-6 mr-2 align-middle"><label for="no5" class="align-middle">нет</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Экран                                                       <span>&or;</span></summary>
+  <input type="checkbox" name="n-noscreen6" id="noscreen6" class="ml-6 mr-2 align-middle"><label for="noscreen6" class="align-middle">без экрана</label><br>
+  <input type="checkbox" name="n-screen6" id="screen6" class="ml-6 mr-2 align-middle"><label for="screen6" class="align-middle">с экраном</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Тип брони                                               <span>&or;</span></summary>
+  <input type="checkbox" name="n-allen7" id="allen7" class="ml-6 mr-2 align-middle"><label for="allen7" class="align-middle">алюминиевые ленты</label><br>
+  <input type="checkbox" name="n-noarm7" id="noarm7" class="ml-6 mr-2 align-middle"><label for="noarm7" class="align-middle">без брони</label><br>
+  <input type="checkbox" name="n-stlen7" id="stlen7" class="ml-6 mr-2 align-middle"><label for="stlen7" class="align-middle">стальные оцинкованные ленты</label><br>
+  <input type="checkbox" name="n-stpr7" id="stpr7" class="ml-6 mr-2 align-middle"><label for="stpr7" class="align-middle">стальные оцинкованные проволоки</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Материал наружной оболочки            <span>&or;</span></summary>
+  <input type="checkbox" name="n-pvh8" id="pvh8" class="ml-6 mr-2 align-middle"><label for="pvh8" class="align-middle">ПВХ пластикат</label><br>
+  <input type="checkbox" name="n-comp8" id="comp8" class="ml-6 mr-2 align-middle"><label for="comp8" class="align-middle">полимерная композиция, не содержащая галогенов</label><br>
+  <input type="checkbox" name="n-pol8" id="pol8" class="ml-6 mr-2 align-middle"><label for="pol8" class="align-middle">полиэтилен</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Низкотоксичный                                    <span>&or;</span></summary>
+  <input type="checkbox" name="n-yes9" id="yes9" class="ml-6 mr-2 align-middle"><label for="yes9" class="align-middle">да</label><br>
+  <input type="checkbox" name="n-no9" id="no9" class="ml-6 mr-2 align-middle"><label for="no9" class="align-middle">нет</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">С низким дымо- и газовыделением    <span>&or;</span></summary>
+  <input type="checkbox" name="n-yes10" id="yes10" class="ml-6 mr-2 align-middle"><label for="yes10" class="align-middle">да</label><br>
+  <input type="checkbox" name="n-no10" id="no10" class="ml-6 mr-2 align-middle"><label for="no10" class="align-middle">нет</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Безгалогенный                                       <span>&or;</span></summary>
+  <input type="checkbox" name="n-yes11" id="yes11" class="ml-6 mr-2 align-middle"><label for="yes11" class="align-middle">да</label><br>
+  <input type="checkbox" name="n-no11" id="no11" class="ml-6 mr-2 align-middle"><label for="no11" class="align-middle">нет</label><br>
+  </details>
+
+  <details>
+  <summary class="font-medium text-lg py-3 pl-4 list-none whitespace-pre">Класс пожарной опасности                  <span>&or;</span></summary>
+  <div class="overflow-y-scroll h-60">
+  <input type="checkbox" name="n-18254" id="18254" class="ml-6 mr-2 align-middle"><label for="18254" class="align-middle">О1.8.2.5.4</label><br>
+  <input type="checkbox" name="n-28254" id="28254" class="ml-6 mr-2 align-middle"><label for="28254" class="align-middle">О2.8.2.5.4</label><br>
+  <input type="checkbox" name="n-11222" id="11222" class="ml-6 mr-2 align-middle"><label for="11222" class="align-middle">П1б.1.2.2.2</label><br>
+  <input type="checkbox" name="n-17121" id="17121" class="ml-6 mr-2 align-middle"><label for="17121" class="align-middle">П1б.7.1.2.1</label><br>
+  <input type="checkbox" name="n-17212" id="17212" class="ml-6 mr-2 align-middle"><label for="17212" class="align-middle">П1б.7.2.1.2</label><br>
+  <input type="checkbox" name="n-17222" id="17222" class="ml-6 mr-2 align-middle"><label for="17222" class="align-middle">П1б.7.2.2.2</label><br>
+  <input type="checkbox" name="n-18121" id="18121" class="ml-6 mr-2 align-middle"><label for="18121" class="align-middle">П1б.8.1.2.1</label><br>
+  <input type="checkbox" name="n-18212" id="18212" class="ml-6 mr-2 align-middle"><label for="18212" class="align-middle">П1б.8.2.1.2</label><br>
+  <input type="checkbox" name="n-18222" id="18222" class="ml-6 mr-2 align-middle"><label for="18222" class="align-middle">П1б.8.2.2.2</label><br>
+  <input type="checkbox" name="n-18254" id="18254" class="ml-6 mr-2 align-middle"><label for="18254" class="align-middle">П1б.8.2.5.4</label><br>
+  <input type="checkbox" name="n-27212" id="27212" class="ml-6 mr-2 align-middle"><label for="27212" class="align-middle">П2.7.2.1.2</label><br>
+  </div>
+  </details>
+
+ </form>
+
+<button type="reset" form="aside-form" value="Сбросить" title="Сброс характеристик" class="text-gray-400 font-semibold text-lg ml-64 hover:text-black">
+  <span class="text-3xl pr-2">&#215;</span>Сбросить
+</button>
+</aside>
+<!-- Конец боковой панели -->
+
+<!-- Начало основного раздела -->
+
+<!-- Иконки вида кабеля -->
+<div class="w-2/5 mt-4 mb-3 grid grid-cols-10 gap-x-2">
+  <button><img src="img/icon/fr.png" alt="Огнестойкое исполнение (FR)" title="Огнестойкое исполнение (FR)" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/cr.png" alt="Хладостойкое исполнение (ХЛ)" title="Хладостойкое исполнение (ХЛ)" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/arm.png" alt="Бронированный" title="Бронированный" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/lt.png" alt="Низкотоксичный" title="Низкотоксичный" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/hf.png" alt="Безгалогенный (HF)" title="Безгалогенный (HF)" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/ls.png" alt="С низким дымо- и газовыделением" title="С низким дымо- и газовыделением" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/alone.png" alt="Одиночной прокладки" title="Одиночной прокладки" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/gr.png" alt="Групповой прокладки" title="Групповой прокладки" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/shield.png" alt="С экраном" title="С экраном" class="opacity-50 hover:opacity-100"></button>
+  <button><img src="img/icon/no-shield.png" alt="Без экрана" title="Без экрана" class="opacity-50 hover:opacity-100"></button>
+</div>
+
+<!-- Начало кабеля -->
+<main class="float-right w-[64%]">
+
+  <!-- №1 Кабель ВВГ -->
+  <article class="border h-56 hover:border-0 hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)] relative">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/vvg/" title="ВВГ">
+      <img src="img/cable/vvg.jpg" alt="ВВГ" class="float-left scale-[0.7] absolute -left-8">
+    </a>
+
+    <div class="flex scale-[0.23] absolute -right-16 -top-8 z-10">
+      <img src="img/icon/alone.png" alt="Одиночной прокладки" title="Одиночной прокладки" class="mr-5">
+      <img src="img/icon/no-shield.png" alt="Без экрана" title="Без экрана">
+    </div>
+
+    <div class="absolute ml-56 mt-5">
+      <h3 class="font-bold text-lg">ВВГ</h3>
+      <p class="opacity-50 mt-1.5">156 маркоразмеров</p>
+      <p class="text-[15px] mt-2">Силовые кабели с медными жилами, с изоляцией и оболочкой из<br> ПВХ пластиката</p>
+      <button title="Подробнее о кабеле" class="absolute text-lg font-semibold text-white px-6 py-2 mt-6 border border-green-700 bg-green-700 hover:bg-white hover:text-green-700">
+        <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/vvg/">Подробнее</a>
+      </button>
+
+    <!-- Кнопка "Запрос цены" (форма после всего кабеля) -->
+    <button id="openprice1" title="Узнать цену" form="price"
+    class="absolute text-lg font-semibold text-green-700 px-5 py-2 mt-6 ml-44 border border-green-700 bg-white hover:bg-green-700 hover:text-white hover:border-white">Запрос цены
+      <span class="text-sm px-1.5 border border-green-700 rounded-xl">?</span>
+    </button>
+    </div>
+  </article>
+
+  <!-- №2 Кабель АВВГ -->
+  <article class="border h-56 mt-3 hover:border-0 hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)] relative">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/avvg/" title="АВВГ">
+      <img src="img/cable/avvg.jpg" alt="АВВГ" class="float-left scale-[0.7] absolute -left-8">
+    </a>
+
+    <div class="flex scale-[0.23] absolute -right-16 -top-8 z-10">
+      <img src="img/icon/alone.png" alt="Одиночной прокладки" title="Одиночной прокладки" class="mr-5">
+      <img src="img/icon/no-shield.png" alt="Без экрана" title="Без экрана">
+    </div>
+
+    <div class="absolute ml-56 mt-5">
+      <h3 class="font-bold text-lg">АВВГ</h3>
+      <p class="opacity-50 mt-1.5">25 маркоразмеров</p>
+      <p class="text-[15px] mt-2">Силовые кабели с алюминиевыми жилами, с изоляцией и<br> оболочкой из ПВХ пластиката</p>
+      <button title="Подробнее о кабеле" class="absolute text-lg font-semibold text-white px-6 py-2 mt-6 border border-green-700 bg-green-700 hover:bg-white hover:text-green-700">
+        <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/avvg/">Подробнее</a>
+      </button>
+
+    <!-- Кнопка "Запрос цены" (форма после всего кабеля) -->
+    <button id="openprice2" title="Узнать цену" form="price"
+    class="absolute text-lg font-semibold text-green-700 px-5 py-2 mt-6 ml-44 border border-green-700 bg-white hover:bg-green-700 hover:text-white hover:border-white">Запрос цены
+      <span class="text-sm px-1.5 border border-green-700 rounded-xl">?</span>
+    </button>
+    </div> 
+  </article>
+
+  <!-- №3 Кабель ВВГ-П -->
+  <article class="border h-56 mt-3 hover:border-0 hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)] relative">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/vvg-p/" title="ВВГ-П">
+      <img src="img/cable/vvg-p.jpg" alt="ВВГ-П" class="float-left scale-[0.7] absolute -left-8">
+    </a>
+
+    <div class="flex scale-[0.23] absolute -right-16 -top-8 z-10">
+      <img src="img/icon/alone.png" alt="Одиночной прокладки" title="Одиночной прокладки" class="mr-5">
+      <img src="img/icon/no-shield.png" alt="Без экрана" title="Без экрана">
+    </div>
+
+    <div class="absolute ml-56 mt-5">
+      <h3 class="font-bold text-lg">ВВГ-П</h3>
+      <p class="opacity-50 mt-1.5">24 маркоразмеров</p>
+      <p class="text-[15px] mt-2">Силовые кабели с медными жилами, с изоляцией и оболочкой из<br> ПВХ пластиката в плоском исполнении</p>
+      <button title="Подробнее о кабеле" class="absolute text-lg font-semibold text-white px-6 py-2 mt-6 border border-green-700 bg-green-700 hover:bg-white hover:text-green-700">
+        <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/vvg-p/">Подробнее</a>
+      </button>
+
+    <!-- Кнопка "Запрос цены" (форма после всего кабеля) -->
+    <button id="openprice3" title="Узнать цену" form="price"
+    class="absolute text-lg font-semibold text-green-700 px-5 py-2 mt-6 ml-44 border border-green-700 bg-white hover:bg-green-700 hover:text-white hover:border-white">Запрос цены
+      <span class="text-sm px-1.5 border border-green-700 rounded-xl">?</span>
+    </button>
+    </div> 
+  </article>
+
+  <!-- №4 Кабель АВВГ-П -->
+  <article class="border h-56 mt-3 mb-10 hover:border-0 hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)] relative">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/avvg-p/" title="АВВГ-П">
+      <img src="img/cable/avvg-p.jpg" alt="АВВГ-П" class="float-left scale-[0.7] absolute -left-8">
+    </a>
+
+    <div class="flex scale-[0.23] absolute -right-16 -top-8 z-10">
+      <img src="img/icon/alone.png" alt="Одиночной прокладки" title="Одиночной прокладки" class="mr-5">
+      <img src="img/icon/no-shield.png" alt="Без экрана" title="Без экрана">
+    </div>
+
+    <div class="absolute ml-56 mt-5">
+      <h3 class="font-bold text-lg">АВВГ-П</h3>
+      <p class="text-[15px] mt-2">Силовые кабели с алюминиевыми жилами, с<br> изоляцией и оболочкой из ПВХ пластиката в плоском<br> исполнении</p>
+      <button title="Подробнее о кабеле" class="absolute text-lg font-semibold text-white px-6 py-2 mt-6 border border-green-700 bg-green-700 hover:bg-white hover:text-green-700">
+        <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/avvg-p/">Подробнее</a>
+      </button>
+
+    <!-- Кнопка "Запрос цены" (форма после всего кабеля) -->
+    <button id="openprice4" title="Узнать цену" form="price"
+    class="absolute text-lg font-semibold text-green-700 px-5 py-2 mt-6 ml-44 border border-green-700 bg-white hover:bg-green-700 hover:text-white hover:border-white">Запрос цены
+      <span class="text-sm px-1.5 border border-green-700 rounded-xl">?</span>
+    </button>
+    </div>   
+  </article>
+
+<!-- Нумерация страниц -->
+<ul class="text-[15px] flex justify-center">
+  <li class="pr-2">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/" title="На страницу 1">1</a>
+  </li>
+  <li class="text-gray-400 pr-2">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/?utm_source=google&utm_medium=poisk&utm_campaign=g&utm_content=481898340619&utm_term=%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C+%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C&gclid=CjwKCAiAxJSPBhAoEiwAeO_fP9NgoR3ixgL6uZaV2sYnm6lpCpZrt6dO3v83UektgMoazay9vZpzSxoC57kQAvD_BwE&PAGEN_1=2" title="На страницу 2">2</a>
+  </li>
+  <li class="text-gray-400 pr-2">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/?utm_source=google&utm_medium=poisk&utm_campaign=g&utm_content=481898340619&utm_term=%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C+%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C&gclid=CjwKCAiAxJSPBhAoEiwAeO_fP9NgoR3ixgL6uZaV2sYnm6lpCpZrt6dO3v83UektgMoazay9vZpzSxoC57kQAvD_BwE&PAGEN_1=3" title="На страницу 3">3</a>
+  </li>
+  <li class="text-gray-400 pr-2">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/?utm_source=google&utm_medium=poisk&utm_campaign=g&utm_content=481898340619&utm_term=%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C+%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C&gclid=CjwKCAiAxJSPBhAoEiwAeO_fP9NgoR3ixgL6uZaV2sYnm6lpCpZrt6dO3v83UektgMoazay9vZpzSxoC57kQAvD_BwE&PAGEN_1=4" title="На страницу 4">4</a>
+  </li>
+  <li class="text-gray-400 pr-2">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/?utm_source=google&utm_medium=poisk&utm_campaign=g&utm_content=481898340619&utm_term=%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C+%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C&gclid=CjwKCAiAxJSPBhAoEiwAeO_fP9NgoR3ixgL6uZaV2sYnm6lpCpZrt6dO3v83UektgMoazay9vZpzSxoC57kQAvD_BwE&PAGEN_1=5" title="На страницу 5">5</a>
+  </li>
+  <li class="text-gray-400 pr-2">...</li>
+  <li class="text-gray-400 pr-4">
+    <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/?PAGEN_1=33" title="На страницу 33">33</a>
+  </li>
+  <li class="text-gray-400">
+    <a href="#" title="На следуующую страницу">&rarr;</a>
+  </li>
+</ul>
+
+<!-- Конец основного раздела -->
+</main>
+
+<!-- Сама форма "Запрос цены" -->
+ <dialog id="dprice" class="fixed top-16 bg-gray-100">
+      <form action="#" method="post" id="price" class="px-14 w-[495px]">
+
+        <div class="absolute left-[490px] top-[20px]">
+          <button id="closeprice" title="Закрыть" class="scale-[3]">&times;</button>
+        </div>
+
+        <h2 class="text-3xl font-semibold text-center my-4">Запрос цены</h2>
+        <ul>
+          <li>
+            <label for="nameprice" class="text-lg block text-left">Ваше имя*</label>
+            <input type="text" name="user-nameprice" id="nameprice" autocomplete="on" placeholder="Как к вам обращаться" required
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="mailprice" class="text-lg block text-left pt-4">E-mail*</label>
+            <input type="email" name="user-mailprice" id="mailprice" autocomplete="on" placeholder="Почтовый ящик" required
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="telprice" class="text-lg block text-left pt-4">Контактный телефон</label>
+            <input type="tel" name="user-telprice" id="telprice" autocomplete="on" placeholder="Ваш телефон"
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="brandprice" class="text-lg block text-left pt-4">Марка</label>
+            <input type="text" name="user-brandprice" id="brandprice" autocomplete="on" placeholder="Марка кабеля" required
+            class="mt-2 block w-full border py-2 pl-6">
+          </li>
+
+          <li>
+            <label for="msgprice" class="text-lg block text-left pt-4">Ваше сообщение</label>
+            <textarea id="msgprice" name="user-messageprice" rows="3" placeholder="Дополнительная информация"
+            class="mt-2 block w-full resize-none border py-2 pl-6">
+            </textarea>
+          </li>
+
+          <li class="opacity-75 italic py-5">
+            * - обязательные для заполнения поля
+          </li>
+
+          </li>
+          <li>
+            <input type="checkbox" name="data-processingprice" id="data-procprice" checked>
+            <label for="data-procprice">
+              <a href="https://expert-cable.ru/privacy-policy/" title="Политика конфиденциальности" target="_blank" class="underline">
+                С условиями обработки данных
+              </a> ознакомлен и<br> <span class="pl-4">согласен</span>
+            </label>
+          </li>
+        </ul>
+      
+      <div class="text-center">
+        <button type="submit" title="Отправить заявку"
+        class="text-lg font-semibold text-center text-white px-5 py-2 my-7 bg-green-700 border-2 border-green-700 hover:text-green-700 hover:bg-white">
+        Отправить запрос
+        </button>
+      </div>
+
+    </form>
+</dialog>
+
+    <script>
+    var dialog_price = document.querySelector('#dprice');
+    document.querySelector('#openprice1').onclick = function() {
+    dialog_price.show();
+    }
+    document.querySelector('#closeprice').onclick = function() {
+    dialog_price.close();
+    }
+    </script>
+    <!-- Конец формы "Запрос цены" -->
+
+<!-- Начало "Похожие товары" -->
+<h2 class="clear-right text-3xl font-bold pt-6">Похожие товары</h2>
+
+<section class="clear-right mt-6 grid grid-cols-4 gap-x-4">
+
+<div class="border hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)]">
+  <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-vbshvng-a-frls/" title="Expert class ВБШвнг(А)-FRLS">
+    <div class="ml-4"><img src="img/similar/1.jpg" alt="Expert class ВБШвнг(А)-FRLS"></div>
+    <p class="text-lg font-bold text-center">Expert class ВБШвнг(А)-FRLS</p>
+  </a>
+  <p class="text-lg text-center">106 маркоразмеров</p>
+  <div class="text-center">
+    <button title="Подробнее о кабеле" class="text-lg font-semibold text-white px-6 py-2 mt-4 mb-12 bg-green-700">
+      <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-vbshvng-a-frls/">Подробнее</a>
+    </button>
+  </div>
+</div>
+
+<div class="border hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)]">
+  <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-vvgeng-a-ls/" title="Expert class ВВГЭнг(А)-LS">
+    <div class="ml-4"><img src="img/similar/2.jpg" alt="Expert class ВВГЭнг(А)-LS"></div>
+    <p class="text-lg font-bold text-center">Expert class ВВГЭнг(А)-LS</p>
+  </a>
+  <p class="text-lg text-center">106 маркоразмеров</p>
+  <div class="text-center">
+    <button title="Подробнее о кабеле" class="text-lg font-semibold text-white px-6 py-2 mt-4 mb-12 bg-green-700">
+      <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-vvgeng-a-ls/">Подробнее</a>
+    </button>
+  </div>
+</div>
+
+<div class="border hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)]">
+  <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-vvg-png-a-lsltx/" title="Expert class ВВГ-Пнг(А)-LSLTx">
+    <div class="ml-4"><img src="img/similar/3.jpg" alt="Expert class ВВГ-Пнг(А)-LSLTx"></div>
+    <p class="text-lg font-bold text-center">Expert class ВВГ-Пнг(А)-LSLTx</p>
+  </a>
+  <p class="text-lg text-center">4 маркоразмеров</p>
+  <div class="text-center">
+    <button title="Подробнее о кабеле" class="text-lg font-semibold text-white px-6 py-2 mt-4 mb-12 bg-green-700">
+      <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-vvg-png-a-lsltx/">Подробнее</a>
+    </button>
+  </div>
+</div>
+
+<div class="border hover:shadow-[0px_0px_15px_rgba(0,0,0,0.1)]">
+  <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-ppgng-a-hf/" title="Expert class ППГнг(А)-HF">
+    <div class="ml-4"><img src="img/similar/4.jpg" alt="Expert class ППГнг(А)-HF"></div>
+    <p class="text-lg font-bold text-center">Expert class ППГнг(А)-HF</p>
+  </a>
+  <p class="text-lg text-center">118 маркоразмеров</p>
+  <div class="text-center">
+    <button title="Подробнее о кабеле" class="text-lg font-semibold text-white px-6 py-2 mt-4 mb-12 bg-green-700">
+      <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/expert-class-ppgng-a-hf/">Подробнее</a>
+    </button>
+  </div>
+</div>
+</section>
+
+<!-- Таблица кабеля на напряжение -->
+<table class="w-full mt-20 mb-8 text-center table-fixed border-collapse">
+  <caption class="uppercase font-bold text-3xl text-left pb-4">Кабели силовые на напряжение 0,66 кВ, 1 кВ, 3 кВ ГОСТ 319962</caption>
+  <thead class="border bg-gray-100">
+    <tr class="border">
+      <th rowspan="3" class="border">Наименование жилы</th>
+      <th colspan="5" class="py-2">Номинальное сечение жилы*, мм<sup>2</sup></th>
+    </tr>
+    <tr class="border">
+      <td colspan="3" class="border py-2">круглой</td>
+      <td colspan="2" class="py-2">секторной (сегментной)</td>
+    </tr>
+    <tr class="border">
+      <td class="border">медной</td>
+      <td class="border">из алюминиевого сплава</td>
+      <td class="border">алюминиевой</td>
+      <td class="border">медной</td>
+      <td>алюминиевой</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border">
+      <td class="border py-4">Однопроволочная</td>
+      <td class="border">1,5-50</td>
+      <td class="border">2,5-50</td>
+      <td class="border">2,5-300</td>
+      <td class="border">-</td>
+      <td>25-400</td>
+    </tr>
+    <tr class="border">
+      <td class="border py-4">Многопроволочная</td>
+      <td class="border">1,5-1000</td>
+      <td colspan="2" class="border">25-1000</td>
+      <td class="border">25-400</td>
+      <td>25-400</td>
+    </tr>
+  </tbody>
+  <tfoot class="border-transparent">
+    <tr>
+      <td colspan="6" class="text-left">* Значение, не подлежащее проверке непосредственным измерением.</td>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- Аннотация к таблице -->
+<ol class="list-decimal list-inside">
+  <li class="uppercase font-medium text-gray-500">Токопроводящая жила:
+    <ul class="normal-case font-normal">
+      <li>А – алюминиевая 1 или 2 класс</li>
+      <li>Без индекса – медная</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Изоляция:
+    <ul class="normal-case font-normal">
+      <li>В – поливинилхлоридный пластикат </li>
+      <li>Пв – сшитый полиэтилен</li>
+      <li>П – полимерная композиция не содержащая галогенов</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Экран:
+    <ul class="normal-case font-normal">
+      <li>Без обозначения – для  кабелей на напряжение 3 кВ </li>
+      <li>Э – из медной фольги, ленты или медных проволок</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Броня:
+    <ul class="normal-case font-normal">
+      <li>Б – стальные оцинкованные ленты</li>
+      <li>Ба – алюминиевые ленты</li>
+      <li>К – броня из стальных оцинкованных проволок</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Оболочка:
+    <ul class="normal-case font-normal">
+      <li>В – поливинилхлоридный пластикат </li>
+      <li>П – полимерная композиция не содержащая галогенов</li>
+      <li>Шв* –  поливинилхлоридный  пластикат</li>
+      <li>Шп* – полиэтилен</li>
+      <li>*для бронированных кабелей</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Показатель пожарной опасности:
+    <ul class="normal-case font-normal">
+      <li>нг(А) – не распространяет горением при групповой прокладке</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Огнестойкость:
+    <ul class="normal-case font-normal">
+      <li>FR – кабели огнестойкие</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Исполнение в части пожарной опасности:
+    <ul class="normal-case font-normal">
+      <li>«LSLTx» – с  пониженным дымо- и газовыделением (Low Smoke) с низкой токсичностью продуктов горения (Low Toxic)</li>
+      <li>«LS» – с  пониженным дымо- и газовы-делением (Low Smoke)</li>
+      <li>«HF» – не содержащий галогенов (Halogen Free)</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Холодостойкость</li>
+  <li class="uppercase font-medium text-gray-500">Количество жил</li>
+  <li class="uppercase font-medium text-gray-500">Сечение жил</li>
+  <li class="uppercase font-medium text-gray-500">Тип токопроводящей жилы:
+    <ul class="normal-case font-normal">
+      <li>ок – однопроволочная круглая</li>
+      <li>мк – многопроволочная круглая</li>
+      <li>мс – многопроволочная секторная</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Сечение экрана -
+    <ul class="normal-case font-normal">
+      <li>из медной проволоки и медной ленты, медная лента входит в сечение экрана</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Цветовая маркировка жил:
+    <ul class="normal-case font-normal">
+      <li>N – нулевая жила синего цвета</li>
+      <li>PE – жила заземления зелёно-жёлтого цвета</li>
+    </ul>
+  </li>
+  <li class="uppercase font-medium text-gray-500">Напряжение: 0,66 кВ; 1 кВ; 3 кВ
+</ol>
+
+<!-- Закрываю div с w-7/12 -->
+</div>
+
+<!-- Подвал -->
+<footer class="bg-[url('img/footer.png')] mt-14 bg-left-top">
+
+  <div class="w-7/12 mx-auto pt-10 flex justify-between content-start text-white">
+<!-- Блок №1 -->
+  <ul class="font-bold leading-8">
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/about/" title="О нас">О компании</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/articles/" title="Статьи">Статьи</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/" title="Продукция">Каталог</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/about/license/" title="Лицензии">Лицензии</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/about/feedback/" title="Отзывы">Отзывы</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/partner/" title="Монтаж">Электромонтаж</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/about/vacancy/" title="Вакансии">Вакансии</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/contacts/" title="Связаться с нами">Контакты</a>
+    </li>
+  </ul>
+
+<!-- Блок №2 -->
+  <ul class="font-bold leading-8">
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-3-kv/" title="Кабели силовые до 3 кВ">Кабели силовые до 3 кВ</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/kabeli-silovye-do-6-kv/" title="Кабели силовые до 10 кВ">Кабели силовые до 10 кВ</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/energosberezhenie-expert-class/" title="Электросбережение">Энергосбережение expert class</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/kabeli-kontrolnye/" title="Кабели контрольные">Кабели контрольные</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/kabeli-gibkie/" title="Кабели гибкие">Кабели гибкие</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/provoda-kabeli-ustanovochnye/" title="Провода, Кабели установочные">Провода, Кабели установочные</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/provoda-sip/" title="Провода СИП">Провода СИП</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/spetsialnye-kabeli/" title="Специальные кабели">Специальные кабели</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/shina-mednaya/" title="Шина медная">Шина медная</a>
+    </li>
+    <li class="hover:underline">
+      <a href="https://expert-cable.ru/catalog/3d-katalog/" title="3D-каталог">3D-каталог</a>
+    </li>
+  </ul>
+
+<!-- Блок №3 -->
+  <div>
+  <img src="img/mobileOr.png" alt="Телефон" class="float-left mt-1.5 pr-2">
+  <button>
+    <span class="text-lg align-bottom hover:border-b hover:border-dashed">
+      <span class="font-bold">+7 (495)</span> 248-66-70
+    </span>
+  </button>
+
+  <p class="indent-4">
+    <span class="font-bold pl-2">Пн-Пт:</span> 09:00 - 20:00, <span class="font-bold">Сб - Вс:</span> 10:00 - 16:00
+  </p>
+
+    <!-- Форма "Заказать обратный звонок" -->
+    <button id="openCallf" title="Заказать обратный звонок" class="ml-6 text-lg border-b border-dashed hover:opacity-75">Заказать обратный звонок</button>
+    <dialog>
+      <form action="#" method="post">
+        <h2>Заказать обратный звонок</h2>
+        <ul>
+          <li>
+            <label for="nameCallf">Ваше имя</label>
+            <input type="text" name="user-name" id="nameCallf" autocomplete="on" placeholder="Как к вам обращаться" required>
+          </li>
+          <li>
+            <label for="telCallf">Контактный телефон</label>
+            <input type="tel" name="user-tel" id="telCallf" autocomplete="on" placeholder="Ваш телефон">
+          </li>
+            * - обязательные для заполнения поля
+          </li>
+          <li>
+            <input type="checkbox" name="data-processing" id="data-procCallf" checked>
+            <label for="data-procCallf"><a href="https://expert-cable.ru/privacy-policy/" title="Политика конфиденциальности">С условиями обработки данных</a> ознакомлен и согласен</label>
+          </li>
+          <li>
+            <button type="submit" title="Заказать обратный звонок">Заказать обратный звонок</button>
+          </li>
+        </ul>
+      </form>
+    
+    <p><button id="closeCallf" title="Закрыть">&#10006;</button></p>
+    </dialog>
+
+    <script>
+    var Callf = document.querySelector('Callf');
+    document.querySelector('#openCallf').onclick = function() {
+    dialog.show();
+    }
+    document.querySelector('#closeCallf').onclick = function() {
+    dialog.close();
+    }
+    </script>
+    <!-- Конец формы "Заказать звонок" -->
+
+  <div class="mt-4">
+    <img src="img/letter.png" alt="Письмо" class="mt-2.5 pr-2 float-left">
+    <a href="mailto:sale@expert-cable.ru" title="Почта" class="text-lg hover:border-b hover:border-dashed">
+      sale@expert-cable.ru
+    </a>
+  </div>
+
+  <div class="mt-4">
+    <img src="img/geo.png" alt="Адрес" class="mt-1 pr-2 float-left">
+    <p>302040, г. Орел, ул. Раздольная,<br> <span class="pl-5">д. 105</span></p>
+  </div>
+
+  <div class="mt-4">
+    <img src="img/geo.png" alt="Адрес" class="mt-1 pr-2 float-left">
+    <p>121087, г. Москва, Береговой проезд<br><span class="pl-5">д.5А, корп.1, БЦ Фили Град, 4 этаж</span></p>
+  </div>
+
+</div>
+
+<!-- Блок №4 -->
+  <div>
+
+  <div class="bg-green-800 w-[350px] h-44 relative">
+  <form action="#" method="post">
+    <p class="text-xl font-bold leading-6 mb-2.5 pt-8 pl-8">Подписывайтесь на новости<br> и акции:</p>
+
+    <div class="w-16 ml-8 border border-orange-500"></div>
+
+    <ul>
+      <li>
+        <label for="mailPricef"></label>
+        <input type="email" name="user-mail" id="mailf" autocomplete="on" placeholder="E-mail" class="ml-8 mt-6 bg-green-800 border-b float-left">
+      </li>
+    </ul>
+
+    <button type="submit" title="Подписаться"><span class="text-sm px-2 py-1 rounded-xl bg-zinc-600 absolute">&rarr;</span></button>
+
+  </form>
+  </div>
+
+  <div class="mt-6 ml-8">
+    <img src="img/on.png" alt="Выбор языка" class="float-left mt-1.5">
+    <p><a href="#" title="Английская версия" class="pl-2 text-slate-300 hover:underline font-semibold opacity-75">English version</a></p>
+  </div>
+  
+  <p class="mt-4 font-semibold">Мы в социальных сетях</p>
+
+  <div class="w-16 mt-1.5 border border-orange-500"></div>
+
+<!-- Иконки соцсетей -->
+  <div class="mt-4 w-36 flex justify-between">
+
+    <div>
+      <div class="inline absolute opacity-100 hover:opacity-0">
+        <img src="img/social/vk-w.png">
+      </div>
+
+      <div class="inline absolute opacity-0 hover:opacity-100">
+        <a href="https://vk.com/expertcable" title="ВКонтакте" target="_blank">
+          <img src="img/social/vk-o.png">
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="inline absolute opacity-100 hover:opacity-0">
+        <img src="img/social/f-w.png">
+      </div>
+
+      <div class="inline absolute opacity-0 hover:opacity-100">
+        <a href="https://www.facebook.com/expertcable14" title="facebook" target="_blank">
+          <img src="img/social/f-o.png">
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="inline absolute opacity-100 hover:opacity-0">
+        <img src="img/social/tube-w.png">
+      </div>
+
+      <div class="inline absolute opacity-0 hover:opacity-100">
+        <a href="https://www.youtube.com/channel/UCCVV86AKNJKWBOvKe0Fj5QA" title="youtube" target="_blank">
+          <img src="img/social/tube-o.png">
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="inline absolute opacity-100 hover:opacity-0">
+        <img src="img/social/insta-w.png">
+      </div>
+
+      <div class="inline absolute opacity-0 hover:opacity-100">
+        <a href="https://www.instagram.com/expert_cable/" title="instagram" target="_blank">
+          <img src="img/social/insta-o.png">
+        </a>
+      </div>
+    </div>
+
+<!-- Закрываю иконки соцсетей -->
+  </div>
+
+<!-- Закрываю блок №4 -->
+  </div>
+
+<!-- Закрываю flex w-7/12 из 4 блоков -->
+</div>
+
+<hr class="w-7/12 mx-auto my-10 opacity-50">
+
+<!-- Открываю новый w-7/12 -->
+  <div class="w-7/12 mx-auto mt-10 pb-4 text-sm text-slate-300 opacity-75 flex justify-between">
+    <p>&copy; 2018-2022 Кабельный завод "ЭКСПЕРТ-КАБЕЛЬ". Все права защищены</p>
+    <a href="https://expert-cable.ru/privacy-policy/" title="Политика конфиденциальности" class="underline hover:no-underline">Политика конфиденциальности</a>
+  </div>
+
+</footer>
+</body>
+</html>
